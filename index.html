@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreativeLogin v4.0 - Perfect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="container active" id="loginContainer">
+        <!-- Login Form -->
+        <div class="form-panel active" id="loginPanel">
+            <div class="form-box">
+                <div class="logo">
+                    <i class="fas fa-rocket"></i>
+                    <h1>CreativeLogin</h1>
+                </div>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Login</span> <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <div class="message" id="loginMessage"></div>
+                </form>
+                <div class="form-links">
+                    <a href="#" id="toRegister">Create Account</a>
+                    <a href="#" id="toForgot">Forgot Password?</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-panel" id="registerPanel">
+            <div class="form-box">
+                <div class="logo">
+                    <i class="fas fa-user-plus"></i>
+                    <h1>Create Account</h1>
+                </div>
+                <form id="registerForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="regUsername" placeholder="Username" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="regEmail" placeholder="Email" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="regPassword" placeholder="Password (6+ chars)" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="regConfirm" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Create</span> <i class="fas fa-user-plus"></i>
+                    </button>
+                    <div class="message" id="registerMessage"></div>
+                </form>
+                <div class="form-links">
+                    <a href="#" id="toLogin">Login Instead</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Step 1 -->
+        <div class="form-panel" id="forgot1Panel">
+            <div class="form-box">
+                <div class="logo">
+                    <i class="fas fa-envelope"></i>
+                    <h1>Reset Password</h1>
+                    <p>Enter your email</p>
+                </div>
+                <form id="forgot1Form">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="forgotEmail" placeholder="Your Email" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Verify</span> <i class="fas fa-check"></i>
+                    </button>
+                    <div class="message" id="forgot1Message"></div>
+                </form>
+                <div class="form-links">
+                    <a href="#" id="backLogin1">← Back to Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forgot Password Step 2 -->
+        <div class="form-panel" id="forgot2Panel">
+            <div class="form-box">
+                <div class="logo">
+                    <i class="fas fa-key"></i>
+                    <h1>New Password</h1>
+                    <p id="resetUserDisplay"></p>
+                </div>
+                <form id="forgot2Form">
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="newPassword" placeholder="New Password" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="newConfirm" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">
+                        <span>Update</span> <i class="fas fa-save"></i>
+                    </button>
+                    <div class="message" id="forgot2Message"></div>
+                </form>
+                <div class="form-links">
+                    <a href="#" id="backLogin2">← Back to Login</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dashboard -->
+    <div class="dashboard hidden" id="dashboard">
+        <header class="dash-header">
+            <div class="user-info">
+                <i class="fas fa-user-circle"></i>
+                <span id="dashUser"></span>
+            </div>
+            <div class="dash-actions">
+                <button id="settingsBtn" class="btn-icon" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+                <button id="adminBtn" class="btn-icon admin-only" title="Admin">
+                    <i class="fas fa-crown"></i>
+                </button>
+                <button id="logoutBtn" class="btn-icon" title="Logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                </button>
+            </div>
+        </header>
+        <main class="dash-main">
+            <div class="welcome-card">
+                <h2>Welcome Back!</h2>
+                <p id="userDetails"></p>
+                <div class="stats">
+                    <div class="stat">
+                        <i class="fas fa-chart-line"></i>
+                        <div>Active <span>Dashboard</span></div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-tasks"></i>
+                        <div>Ready <span>Projects</span></div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-bell"></i>
+                        <div>0 <span>Notifications</span></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal hidden" id="settingsModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-cog"></i> Settings</h3>
+                <button class="close-btn" id="closeSettings">×</button>
+            </div>
+            <form id="settingsForm">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="setUsername" placeholder="Username">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="setEmail" placeholder="Email">
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="setPassword" placeholder="New Password">
+                </div>
+                <button type="submit" class="btn-primary">Save</button>
+                <div class="message" id="settingsMsg"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="modal hidden" id="adminModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3><i class="fas fa-crown"></i> Admin Panel</h3>
+                <button class="close-btn" id="closeAdmin">×</button>
+            </div>
+            <div class="admin-content">
+                <div class="admin-tabs">
+                    <button class="tab-btn active" data-tab="users">Users</button>
+                    <button class="tab-btn" data-tab="activity">Activity</button>
+                </div>
+                <div id="usersTab" class="tab-content active">
+                    <div id="usersList"></div>
+                    <button class="btn-danger" id="clearUsers">Clear All Users</button>
+                </div>
+                <div id="activityTab" class="tab-content">
+                    <div id="activityList"></div>
+                    <button class="btn-danger" id="clearActivity">Clear Logs</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
